@@ -16,3 +16,9 @@ export const getContacts = (req, res) => {
     .then((contacts) => res.json(contacts))
     .catch((err) => err);
 };
+
+export const getContactWithId = (req, res) => {
+  Contact.findById(req.params.contactId)
+    .then((contact) => res.json(contact))
+    .catch((err) => err);
+};
