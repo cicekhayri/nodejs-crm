@@ -22,3 +22,17 @@ export const getContactWithId = (req, res) => {
     .then((contact) => res.json(contact))
     .catch((err) => err);
 };
+
+export const updateContact = (req, res) => {
+  Contact.findOneAndUpdate({ _id: req.params.contactId }, req.body, {
+    new: true,
+  })
+    .then((contact) => res.json(contact))
+    .catch((err) => err);
+};
+
+export const deleteContact = (req, res) => {
+  Contact.findByIdAndDelete({ _id: req.params.contactId })
+    .then(() => res.json({ message: "Successfully deleted contact" }))
+    .catch((err) => err);
+};
