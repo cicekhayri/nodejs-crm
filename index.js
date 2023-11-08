@@ -10,6 +10,7 @@ const PORT = 3000;
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost/CRMdb", {
   useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 
 // bodyparser setup
